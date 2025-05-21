@@ -1,0 +1,27 @@
+{
+  "frame": {
+    "version": "1",
+    "name": "TBPN",
+    "iconUrl": "https://tbpn.vercel.app/static/icon.png",
+    "homeUrl": "https://tbpn.vercel.app",
+    "imageUrl": "https://tbpn.vercel.app/static/og.png",
+    "buttonTitle": "Watch Now",
+    "splashImageUrl": "https://tbpn.vercel.app/static/splash.png",
+    "splashBackgroundColor": "#000000",
+    "webhookUrl": "https://api.neynar.com/f/app/3b85e17a-ae62-4520-9079-496deec212e6/event",
+    "subtitle": "Watch TBPN live on Farcaster",
+    "description": "Technology's daily show with John Coogan and Jordi Hays. Live on Farcaster Monday through Friday.",
+    "primaryCategory": "news-media",
+    "tags": ["video", "technology", "news"],
+    "heroImageUrl": "https://tbpn.vercel.app/static/og.png",
+    "tagline": "Watch TBPN live on Farcaster",
+    "ogTitle": "TBPN",
+    "ogDescription": "Technology's daily show with John Coogan and Jordi Hays. Live on Farcaster Monday through Friday.",
+    "ogImageUrl": "https://tbpn.vercel.app/static/og.png"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjM3MywidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDFDYTY2Yzk5MEU4NkI3NTBlQTZCMjE4MGQxN2ZGZjg5MjczQTVjMGQifQ",
+    "payload": "eyJkb21haW4iOiJ0YnBuLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhjODMyNTg5ZjQzYzI5YWVkOWNiNmQ4MjllOTBhNThmYTE4NTI5NzdkNzA3OGMwMTYzOGE1MjJkZjUyMzI1YzEwNDUyNDg4MzgwNGFmNjdkOTRiYTRiNzIzNDc4YTg0OWU4YzkzMGRjZjFlZjMzMTg0N2NhMTFjZGM4M2QxMWExZTFj"
+  }
+} 

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>TBPN on Farcaster</title>
+    <meta content="Technology's daily show with John Coogan and Jordi Hays. Live on Farcaster Monday through Friday." name="description"/>
+    <meta content="static/og.png" property="og:image"/>
+    <meta content="static/og.png" property="twitter:image"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://d3e54v103j8qbb.cloudfront.net"/>
+    <link rel="preconnect" href="https://cdn.prod.website-files.com"/>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="style.css" as="style"/>
+    <link rel="preload" href="static/logo.svg" as="image"/>
+    <link rel="preload" href="static/splash.png" as="image"/>
+    
+    <!-- Stylesheets -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- Favicon -->
+    <link href="static/fav-small.png" rel="shortcut icon" type="image/x-icon"/>
+    <link href="static/fav-large.png" rel="apple-touch-icon"/>
+    
+    <!-- Farcaster mini-app-->
+    <meta name="fc:frame" content='{
+        "version": "next",
+        "imageUrl": "https://tbpn.vercel.app/static/og.png",
+        "button": {
+          "title": "Watch Now",
+          "action": {
+            "type": "launch_frame",
+            "name": "TBPN",
+            "url": "https://tbpn.vercel.app",
+            "splashImageUrl": "https://tbpn.vercel.app/static/splash.png",
+            "splashBackgroundColor": "#000000"
+          }
+        }
+      }' />
+
+    <!-- Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style type="text/css">
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Geist Mono', monospace;
+        }
+        
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 3rem)); }
+        }
+        
+        .scroll {
+            animation: scroll 10s linear infinite;
+        }
+        
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .loading {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="page-wrapper">
+        <!-- Marquee Banner -->
+        <div class="marquee">
+            <div class="marquee-content scroll">
+                <div class="banner-text">wowow, crypto founder says decentralized, creator coins random content, base flips solana, crypto vc calls for consumer apps </div>
+            </div>
+            <div class="marquee-content scroll">
+                <div class="banner-text">wowow, crypto founder says decentralized, creator coins random content, base flips solana, crypto vc calls for consumer apps </div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <!-- Video Section -->
+            <div class="fixed-wrapper">
+                <div class="video-section">
+                    <div id="youtube-embed" class="video-container">
+                        <div class="code-embed w-embed w-script">
+                            <h1 id="status" class="loading"></h1>
+                            <div id="video-container" class="video-container">
+                                <div id="loading" class="loading"></div>
+                            </div>
+                            
+                            <script>
+                                const videoContainer = document.getElementById("video-container");
+                                const statusEl = document.getElementById("status");
+                                const loadingEl = document.getElementById("loading");
+                                
+                                async function checkLive() {
+                                    try {
+                                        const liveRes = await fetch('https://tbpn-scroll.vercel.app/api/getCurrentVideo');
+                                        const liveData = await liveRes.json();
+                                        embedVideo(liveData.videoId);
+                                    } catch (e) {
+                                        handleError();
+                                    }
+                                }
+                                
+                                function embedVideo(videoId) {
+                                    loadingEl.style.display = "none";
+                                    const iframe = document.createElement("iframe");
+                                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                                    iframe.allowFullscreen = true;
+                                    videoContainer.appendChild(iframe);
+                                }
+                                
+                                function handleError() {}
+                                
+                                checkLive();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Status Indicators -->
+            <div class="scroll-wrapper">
+                <div class="is-live"><div>Live</div></div>
+                <div class="is-offline"><div>Offline</div></div>
+                <div class="live-indicator">
+                    <div class="indicator-wrapper">
+                        <div data-w-id="7abba08c-bf34-dfa1-8a70-88164ac4a357" class="dot"></div>
+                        <div>Live Now</div>
+                    </div>
+                </div>
+                <div class="offline-indicator">
+                    <div class="indicator-wrapper">
+                        <div class="dot grey"></div>
+                        <div>Offline</div>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="section-container">
+                    <!-- Logo Section -->
+                    <div class="content-block">
+                        <div data-w-id="29f71246-bb96-57f1-f370-2e479254add7" class="image-wrap">
+                            <div class="logo-image">
+                                <div class="logo">
+                                    <img src="static/logo.svg" loading="lazy" alt="" class="lottie-animation"/>
+                                </div>
+                                <img src="https://cdn.prod.website-files.com/67c21d2a7633aaaad4da9a36/67d3adaf0a086cde05255daf_mask.svg" loading="lazy" alt="" class="mask"/>
+                                <div class="shine"></div>
+                                <img src="static/gradient.png" loading="lazy" alt="" class="gradient"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sponsors Section -->
+                    <div class="content-block">
+                        <div class="title-wrapper">
+                            <h2>MADE POSSIBLE BY</h2>
+                        </div>
+                        <a href="https://warpcast.com/jayme" target="_blank" class="sponsor-link-block w-inline-block">
+                            <img src="static/ramp-button.png" loading="lazy" alt=""/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Initialize app -->
+    <script type="module">
+        import { sdk } from 'https://esm.sh/@farcaster/frame-sdk';
+        try {
+            await sdk.actions.ready();
+            await sdk.actions.addMiniApp();
+            console.log('Splash dismissed');
+        } catch (e) {
+            console.error('Failed to dismiss splash screen', e);
+        }
+    </script>
+    
+    <!-- Live Status Script -->
+    <script src="live-status.js"></script>
+</body>
+</html>

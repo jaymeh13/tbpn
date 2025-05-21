@@ -1,0 +1,14 @@
+{
+  "name": "tbpn",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "serve ."
+  },
+  "dependencies": {
+    "@farcaster/frame-node": "^0.0.29",
+    "@farcaster/frame-sdk": "^0.0.45",
+    "@neynar/nodejs-sdk": "^2.43.0",
+    "serve": "^14.2.1"
+  }
+}
