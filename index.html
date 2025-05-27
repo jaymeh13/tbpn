@@ -90,10 +90,13 @@
         <!-- Marquee Banner -->
         <div class="marquee">
             <div class="marquee-content scroll">
-                <div class="banner-text">wowow, crypto founder says decentralized, creator coins random content, base flips solana, crypto vc calls for consumer apps </div>
+                <div class="banner-text">farcaster pro sells out, BTC all-time high, trader coins content, circle files for IPO, creator receives tips in tokens, noice</div>
             </div>
             <div class="marquee-content scroll">
-                <div class="banner-text">wowow, crypto founder says decentralized, creator coins random content, base flips solana, crypto vc calls for consumer apps </div>
+                <div class="banner-text">farcaster pro sells out, BTC all-time high, trader coins content, circle files for IPO, creator receives tips in tokens, noice</div>
+            </div>
+            <div class="marquee-content scroll">
+                <div class="banner-text">farcaster pro sells out, BTC all-time high, trader coins content, circle files for IPO, creator receives tips in tokens, noice</div>
             </div>
         </div>
 
@@ -174,14 +177,19 @@
                         </div>
                     </div>
 
-                    <!-- Sponsors Section -->
-                    <div class="content-block">
+                    <!-- Sponsors -->
+                    <div class="content-block sponsor-block">
                         <div class="title-wrapper">
                             <h2>MADE POSSIBLE BY</h2>
                         </div>
-                        <a href="https://warpcast.com/jayme" target="_blank" class="sponsor-link-block w-inline-block">
-                            <img src="static/ramp-button.png" loading="lazy" alt=""/>
-                        </a>
+                        <a href="https://farcaster.xyz/~/token/noice" onclick="if (window.sdk) { window.sdk.actions.viewToken({ token: 'eip155:8453/erc20:0x9cb41fd9dc6891bae8187029461bfaadf6cc0c69' }); return false; }" class="sponsor-link-block w-inline-block"><img src="static/noice-button.png" loading="lazy" alt=""/></a>
+                        <a href="https://farcaster.xyz/~/token/degen" onclick="if (window.sdk) { window.sdk.actions.viewToken({ token: 'eip155:8453/erc20:0x4ed4e862860bed51a9570b96d89af5e1b0efefed' }); return false; }" class="sponsor-link-block w-inline-block"><img src="static/degen-button.png" loading="lazy" alt=""/></a>
+                        <a href="https://farcaster.xyz/~/token/higher" onclick="if (window.sdk) { window.sdk.actions.viewToken({ token: 'eip155:8453/erc20:0x0578d8a44db98b23bf096a382e016e29a5ce0ffe' }); return false; }" class="sponsor-link-block w-inline-block"><img src="static/higher-button.png" loading="lazy" alt=""/></a>
+                    </div>
+                    <!-- Disclaimer -->
+                    <div class="content-block">
+                        <div class="title-wrapper"><h2>DISCLAIMER</h2></div>
+                        <div>This Farcaster mini-app is brought to you by <a href="http://farcaster.xyz/jayme" onclick="if (window.sdk) { window.sdk.actions.viewProfile({ fid: 373 }); return false; }" class="text-link-disclaimer">@jayme</a> and is not affiliated with TBPN (formerly the Technology Brothers Podcast), the most profitable podcast in the world.</div>
                     </div>
                 </div>
             </div>
@@ -194,6 +202,7 @@
         try {
             await sdk.actions.ready();
             await sdk.actions.addMiniApp();
+            window.sdk = sdk; // Make sdk available globally
             console.log('Splash dismissed');
         } catch (e) {
             console.error('Failed to dismiss splash screen', e);
